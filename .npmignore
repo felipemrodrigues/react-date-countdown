@@ -7,3 +7,4 @@ webpack.production.config.js
 tests
 src
 CHANGELOG.md
+npm-debug.log
