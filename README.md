@@ -21,5 +21,5 @@ import Countdown from 'react-date-countdown';
 Attributes
 ----------
 
-- ***className*** (optional): CSS class.
-- ***finalDate***: Delta of final date.
+- finalDate: Delta of final date.
+- className (optional): CSS class.
