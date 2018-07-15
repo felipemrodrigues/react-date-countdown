@@ -118,6 +118,16 @@ var Countdown = function (_Component) {
         _this.oneMinute = 60;
         _this.oneHour = 60 * _this.oneMinute;
         _this.oneDay = 24 * _this.oneHour;
+
+        _this.state = {
+            hours: 0,
+            minutes: 0,
+            seconds: 0,
+            countdown: '00:00:00'
+        };
+
+        _this.getTime = _this.getTime.bind(_this);
+        _this.getCountDown = _this.getCountDown.bind(_this);
         return _this;
     }
 
@@ -127,29 +137,39 @@ var Countdown = function (_Component) {
             return number >= 10 ? number : '0' + number;
         }
     }, {
+        key: 'getTime',
+        value: function getTime(finalDate) {
+            var interval = setInterval(function () {
+                var deltaSeconds = (new Date(finalDate) - new Date()) / 1000;
+
+                if (deltaSeconds > 0) {
+                    this.setState({
+                        hours: Math.floor(deltaSeconds / this.oneHour),
+                        minutes: Math.floor(deltaSeconds % this.oneDay % this.oneHour / this.oneMinute),
+                        seconds: Math.floor(deltaSeconds % this.oneDay % this.oneHour % this.oneMinute),
+                        countdown: this.addDigit(hours) + ':' + this.addDigit(minutes) + ':' + this.addDigit(seconds)
+                    });
+                } else {
+                    clearInterval(interval);
+                }
+            }, 1);
+        }
+    }, {
+        key: 'getCountDown',
+        value: function getCountDown() {
+            return this.state.countdown;
+        }
+    }, {
         key: 'render',
         value: function render() {
-            // const { finalDate } = this.props
-
-            // let interval = setInterval(function () {
-            //     var deltaSeconds = (new Date(finalDate) - new Date()) / 1000;
-
-            //     if (deltaSeconds > 0) {
-            //         let hours = Math.floor((deltaSeconds) / this.oneHour);
-            //         let minutes = Math.floor(((deltaSeconds % this.oneDay) % this.oneHour) / this.oneMinute);
-            //         let seconds = Math.floor(((deltaSeconds % this.oneDay) % this.oneHour) % this.oneMinute);
-
-            //         return <span>{ this.addDigit(hours) + ':' + this.addDigit(minutes) + ':' + this.addDigit(seconds) }</span>                   
-            //     }
-            //     return <span>00:00:00</span>
-            //     clearInterval(interval);
-            // }, 1);    
+            var finalDate = this.props.finalDate;
 
 
+            this.getTime(finalDate);
             return _react2.default.createElement(
-                'span',
+                'div',
                 null,
-                'Test'
+                this.getCountDown()
             );
         }
     }]);
