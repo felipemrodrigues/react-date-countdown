@@ -2,7 +2,9 @@
   "name": "react-date-countdown",
   "version": "0.1.2",
   "description": "React date countdown component",
-  "main": "build/index.js",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "git@github.com:felipemrodrigues/react-countdown.git",
   "peerDependencies": {
     "react": "^15.5.4",
     "react-dom": "^16.4.1"
