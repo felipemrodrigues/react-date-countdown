@@ -23,10 +23,3 @@ Attributes
 
 - **className** (optional): CSS class.
 - **finalDate**: Delta of final date.
-
-Test
-----
-
-```sh
-$ npm test
-```
