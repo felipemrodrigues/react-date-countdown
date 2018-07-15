@@ -15,9 +15,11 @@ Usage
 
 ```javascript
 import Countdown from 'react-date-countdown';
-```
 
 <Countdown finalDate="2018-07-16T00:00:00Z" />
+```
+
+
 
 Attributes
 ----------
