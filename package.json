@@ -1,6 +1,6 @@
 {
   "name": "react-date-countdown",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "React date countdown component",
   "main": "index.js",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "test": "jest",
     "start": "webpack --watch",
     "build": "webpack",
-    "posttest": "publish"
+    "publish": "publish --tag latest"
   },
   "author": {
     "name": "Felipe Rodrigues",
