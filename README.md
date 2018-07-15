@@ -16,7 +16,7 @@ Usage
 ```javascript
 import Counter from 'react-countdown';
 
-<Countdown finalDate="" />
+<Countdown finalDate="2018-07-16T00:00:00Z" />
 
 Attributes
 ----------
