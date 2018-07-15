@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { PropTypes } from 'prop-types'
 
 export default class Countdown extends Component {
     constructor(props) {
@@ -45,4 +46,9 @@ export default class Countdown extends Component {
             </div>
         )
     }
+}
+
+Countdown.propTypes = {
+    finalDate: PropTypes.string.isRequired,
+    className: PropTypes.string
 }
