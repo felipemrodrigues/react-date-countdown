@@ -1,6 +1,5 @@
-webpack.local.config.js
-webpack.production.config.js
-.eslintrc
+webpack.config.js
+.eslintrc.js
 .gitignore
 .editorconfig
 .babelrc
@@ -8,3 +7,5 @@ tests
 src
 CHANGELOG.md
 npm-debug.log
+README.md
+LICENSE
