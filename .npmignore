@@ -6,3 +6,4 @@ webpack.production.config.js
 .babelrc
 tests
 src
+CHANGELOG.md

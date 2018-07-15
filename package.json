@@ -1,7 +1,7 @@
 {
-  "name": "react-countdown",
+  "name": "react-date-countdown",
   "version": "0.1.1",
-  "description": "React countdown component",
+  "description": "React date countdown component",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^15.5.4",
