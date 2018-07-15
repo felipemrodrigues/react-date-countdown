@@ -5,8 +5,8 @@ const libraryName = pkg.name;
 module.exports = {
   entry: path.join(__dirname, "./src/index.js"),
   output: {
-    path: path.join(__dirname, './build'),
-    filename: 'react-dices.js',
+    path: path.join(__dirname),
+    filename: 'index.js',
     library: libraryName,
     libraryTarget: 'umd',
     publicPath: '/build/',
