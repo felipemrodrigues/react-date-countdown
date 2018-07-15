@@ -115,10 +115,6 @@ var Countdown = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Countdown.__proto__ || Object.getPrototypeOf(Countdown)).call(this));
 
-        _this.oneMinute = 60;
-        _this.oneHour = 60 * _this.oneMinute;
-        _this.oneDay = 24 * _this.oneHour;
-
         _this.state = {
             hours: 0,
             minutes: 0,
@@ -138,13 +134,17 @@ var Countdown = function (_Component) {
             var _this2 = this;
 
             setInterval(function () {
-                var deltaSeconds = (new Date(finalDate) - new Date()) / 1000;
+                var delta = new Date(finalDate) - new Date();
+                var seconds = delta / 1000;
+                var MINUTE = 60;
+                var HOUR = 60 * MINUTE;
+                var DAY = 24 * HOUR;
 
-                if (deltaSeconds > 0) {
+                if (seconds > 0) {
                     _this2.setState({
-                        hours: _this2.addDigit(Math.floor(deltaSeconds / _this2.oneHour)),
-                        minutes: _this2.addDigit(Math.floor(deltaSeconds % _this2.oneDay % _this2.oneHour / _this2.oneMinute)),
-                        seconds: _this2.addDigit(Math.floor(deltaSeconds % _this2.oneDay % _this2.oneHour % _this2.oneMinute))
+                        hours: _this2.addDigit(Math.floor(seconds / HOUR)),
+                        minutes: _this2.addDigit(Math.floor(seconds % DAY % HOUR / MINUTE)),
+                        seconds: _this2.addDigit(Math.floor(seconds % DAY % HOUR % MINUTE))
                     });
                 } else {
                     clearInterval(_this2.getTime());
@@ -154,13 +154,15 @@ var Countdown = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var finalDate = this.props.finalDate;
+            var _props = this.props,
+                finalDate = _props.finalDate,
+                className = _props.className;
 
 
             this.getTime(finalDate);
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: className },
                 this.state.hours + ':' + this.state.minutes + ':' + this.state.seconds
             );
         }

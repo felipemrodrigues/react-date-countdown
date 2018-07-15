@@ -17,27 +17,32 @@ export default class Countdown extends Component {
 
     getTime(finalDate) {
         setInterval(() => {
-            const deltaSeconds = (new Date(finalDate) - new Date()) / 1000
+            const delta = (new Date(finalDate) - new Date())
+            const seconds = delta / 1000
             const MINUTE = 60
-            const HOUR = 60 * this.oneMinute
-            const DAY = 24 * this.oneHour
+            const HOUR = 60 * MINUTE
+            const DAY = 24 * HOUR
 
-            if (deltaSeconds > 0) {                
+            if (seconds > 0) {
                 this.setState({
-                    hours: this.addDigit(Math.floor((deltaSeconds) / HOUR)),
-                    minutes: this.addDigit(Math.floor(((deltaSeconds % DAY) % HOUR) / MINUTE)),
-                    seconds: this.addDigit(Math.floor(((deltaSeconds % DAY) % HOUR) % MINUTE))
+                    hours: this.addDigit(Math.floor((seconds) / HOUR)),
+                    minutes: this.addDigit(Math.floor(((seconds % DAY) % HOUR) / MINUTE)),
+                    seconds: this.addDigit(Math.floor(((seconds % DAY) % HOUR) % MINUTE))
                 })
             } else {
                 clearInterval(this.getTime())
             }
         }, 1)
-    }   
+    }
 
     render() {
-        const { finalDate } = this.props      
+        const { finalDate, className } = this.props
 
-        this.getTime(finalDate)        
-        return <div>{this.state.hours + ':' + this.state.minutes + ':' + this.state.seconds }</div>
+        this.getTime(finalDate)
+        return (
+            <div className={ className }>
+                { this.state.hours + ':' + this.state.minutes + ':' + this.state.seconds }
+            </div>
+        )
     }
 }

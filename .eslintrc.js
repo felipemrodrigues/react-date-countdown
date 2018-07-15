@@ -9,7 +9,7 @@ module.exports = {
         "promise"
     ],
     "rules": {
-        "max-len": ["error", 80],
+        "max-len": ["error", 100],
         "no-unused-vars": ["error", { "args": "none" }]
     }
 };
