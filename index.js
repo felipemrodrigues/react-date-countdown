@@ -122,12 +122,8 @@ var Countdown = function (_Component) {
         _this.state = {
             hours: 0,
             minutes: 0,
-            seconds: 0,
-            countdown: '00:00:00'
+            seconds: 0
         };
-
-        _this.getTime = _this.getTime.bind(_this);
-        _this.getCountDown = _this.getCountDown.bind(_this);
         return _this;
     }
 
@@ -139,25 +135,21 @@ var Countdown = function (_Component) {
     }, {
         key: 'getTime',
         value: function getTime(finalDate) {
-            var interval = setInterval(function () {
+            var _this2 = this;
+
+            setInterval(function () {
                 var deltaSeconds = (new Date(finalDate) - new Date()) / 1000;
 
                 if (deltaSeconds > 0) {
-                    this.setState({
-                        hours: Math.floor(deltaSeconds / this.oneHour),
-                        minutes: Math.floor(deltaSeconds % this.oneDay % this.oneHour / this.oneMinute),
-                        seconds: Math.floor(deltaSeconds % this.oneDay % this.oneHour % this.oneMinute),
-                        countdown: this.addDigit(hours) + ':' + this.addDigit(minutes) + ':' + this.addDigit(seconds)
+                    _this2.setState({
+                        hours: _this2.addDigit(Math.floor(deltaSeconds / _this2.oneHour)),
+                        minutes: _this2.addDigit(Math.floor(deltaSeconds % _this2.oneDay % _this2.oneHour / _this2.oneMinute)),
+                        seconds: _this2.addDigit(Math.floor(deltaSeconds % _this2.oneDay % _this2.oneHour % _this2.oneMinute))
                     });
                 } else {
-                    clearInterval(interval);
+                    clearInterval(_this2.getTime());
                 }
             }, 1);
-        }
-    }, {
-        key: 'getCountDown',
-        value: function getCountDown() {
-            return this.state.countdown;
         }
     }, {
         key: 'render',
@@ -169,7 +161,7 @@ var Countdown = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                this.getCountDown()
+                this.state.hours + ':' + this.state.minutes + ':' + this.state.seconds
             );
         }
     }]);

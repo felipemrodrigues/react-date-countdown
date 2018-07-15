@@ -4,19 +4,11 @@ export default class Countdown extends Component {
     constructor(props) {
         super()
 
-        this.oneMinute = 60
-        this.oneHour = 60 * this.oneMinute
-        this.oneDay = 24 * this.oneHour
-
         this.state = {
             hours: 0,
             minutes: 0,
-            seconds: 0,
-            countdown: '00:00:00'
+            seconds: 0
         }
-
-        this.getTime = this.getTime.bind(this)
-        this.getCountDown = this.getCountDown.bind(this)
     }
 
     addDigit(number) {
@@ -24,30 +16,28 @@ export default class Countdown extends Component {
     }
 
     getTime(finalDate) {
-        let interval = setInterval(function () {
+        setInterval(() => {
             const deltaSeconds = (new Date(finalDate) - new Date()) / 1000
+            const MINUTE = 60
+            const HOUR = 60 * this.oneMinute
+            const DAY = 24 * this.oneHour
 
-            if (deltaSeconds > 0) {
+            if (deltaSeconds > 0) {                
                 this.setState({
-                    hours: Math.floor((deltaSeconds) / this.oneHour),
-                    minutes: Math.floor(((deltaSeconds % this.oneDay) % this.oneHour) / this.oneMinute),
-                    seconds: Math.floor(((deltaSeconds % this.oneDay) % this.oneHour) % this.oneMinute),
-                    countdown: this.addDigit(hours) + ':' + this.addDigit(minutes) + ':' + this.addDigit(seconds)
-                })                
+                    hours: this.addDigit(Math.floor((deltaSeconds) / HOUR)),
+                    minutes: this.addDigit(Math.floor(((deltaSeconds % DAY) % HOUR) / MINUTE)),
+                    seconds: this.addDigit(Math.floor(((deltaSeconds % DAY) % HOUR) % MINUTE))
+                })
             } else {
-                clearInterval(interval)
+                clearInterval(this.getTime())
             }
         }, 1)
     }   
-
-    getCountDown() {
-        return this.state.countdown
-    }
 
     render() {
         const { finalDate } = this.props      
 
         this.getTime(finalDate)        
-        return <div>{ this.getCountDown() }</div>
+        return <div>{this.state.hours + ':' + this.state.minutes + ':' + this.state.seconds }</div>
     }
 }
