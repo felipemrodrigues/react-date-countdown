@@ -12,6 +12,12 @@ export default class Countdown extends Component {
         }
     }
 
+    componentDidMount() {
+        const { finalDate } = this.props
+
+        this.getTime(finalDate)
+    }
+
     addDigit(number) {
         return number >= 10 ? number : '0' + number
     }
@@ -37,9 +43,8 @@ export default class Countdown extends Component {
     }
 
     render() {
-        const { finalDate, className } = this.props
+        const { className } = this.props
 
-        this.getTime(finalDate)
         return (
             <div className={ className }>
                 { this.state.hours + ':' + this.state.minutes + ':' + this.state.seconds }
