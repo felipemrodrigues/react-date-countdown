@@ -11,7 +11,7 @@
     "test": "jest",
     "start": "webpack --watch",
     "build": "webpack",
-    "prepublish": "rm -rf ./build && npm run build"
+    "posttest": "publish"
   },
   "author": {
     "name": "Felipe Rodrigues",
