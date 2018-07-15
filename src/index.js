@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
-import { start } from 'repl';
 
 export default class Countdown extends Component {
     constructor(props) {
