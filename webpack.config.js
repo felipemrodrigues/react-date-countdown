@@ -26,21 +26,7 @@ module.exports = {
         loader: "eslint-loader"
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              fallback: "file-loader",
-              name: "[name][md5:hash].[ext]",
-              outputPath: 'assets/',
-              publicPath: '/assets/'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(js|jsx)$/,
+        test: /\.(js)$/,
         use: ["babel-loader"],
         include: path.resolve(__dirname, "src"),
         exclude: /node_modules/,
