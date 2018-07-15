@@ -14,7 +14,7 @@ Usage
 -----
 
 ```javascript
-import Counter from 'react-countdown';
+import Countdown from 'react-countdown';
 
 <Countdown finalDate="2018-07-16T00:00:00Z" />
 
