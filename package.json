@@ -1,6 +1,6 @@
 {
   "name": "react-date-countdown",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "React date countdown component",
   "main": "index.js",
   "license": "MIT",
