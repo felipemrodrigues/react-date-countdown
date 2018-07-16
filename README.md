@@ -24,6 +24,6 @@ import Countdown from 'react-date-countdown';
 Attributes
 ----------
 
-- **startDate**: Delta of start date. If this is set the component won't behave as a countdown but as an interval calculator between the start and final date
+- **startDate** (optional): Delta of start date. If this is set the component won't behave as a countdown but as an interval calculator between the start and final date
 - **finalDate**: Delta of final date.
 - **className** (optional): CSS class.
