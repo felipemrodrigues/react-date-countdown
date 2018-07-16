@@ -13,18 +13,19 @@ export default class Countdown extends Component {
     }
 
     componentDidMount() {
-        const { finalDate } = this.props
+        const { startDate, finalDate } = this.props
 
-        this.getTime(finalDate)
+        this.getTime(startDate, finalDate)
     }
 
     addDigit(number) {
         return number >= 10 ? number : '0' + number
     }
 
-    getTime(finalDate) {
+    getTime(startDate, finalDate) {
         setInterval(() => {
-            const delta = (new Date(finalDate) - new Date())
+            const startDelta = startDate ? new Date(startDate) : new Date()
+            const delta = (new Date(finalDate) - startDelta)
             const seconds = delta / 1000
             const MINUTE = 60
             const HOUR = 60 * MINUTE
@@ -55,5 +56,6 @@ export default class Countdown extends Component {
 
 Countdown.propTypes = {
     finalDate: PropTypes.string.isRequired,
+    startDate: PropTypes.string,
     className: PropTypes.string
 }
