@@ -1,7 +1,7 @@
 React Date Countdown
 ==============
 
-Countdown component for [React.js](http://facebook.github.io/react/)
+Date Countdown component for [React.js](http://facebook.github.io/react/)
 
 Installation
 ------------
