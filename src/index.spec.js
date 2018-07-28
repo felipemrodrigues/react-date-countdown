@@ -13,7 +13,7 @@ describe('<Countdown />', () => {
         wrapper = shallow(<Countdown  />)
     })
 
-    it('renders div if finalDate is true', () => {
+    it('should render the component if finalDate is true', () => {
         wrapper.setProps({ finalDate: '2018-07-16T00:00:00Z' })
         expect(wrapper.find('div')).toHaveLength(1)
     })
