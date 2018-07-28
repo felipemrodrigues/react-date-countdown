@@ -33,9 +33,9 @@ export default class Countdown extends Component {
 
       if (seconds > 0) {
         this.setState({
-            hours: this.addDigit(Math.floor((seconds) / HOUR)),
-            minutes: this.addDigit(Math.floor(((seconds % DAY) % HOUR) / MINUTE)),
-            seconds: this.addDigit(Math.floor(((seconds % DAY) % HOUR) % MINUTE))
+          hours: this.addDigit(Math.floor((seconds) / HOUR)),
+          minutes: this.addDigit(Math.floor(((seconds % DAY) % HOUR) / MINUTE)),
+          seconds: this.addDigit(Math.floor(((seconds % DAY) % HOUR) % MINUTE))
         })
       } else {
         clearInterval(this.getTime())
