@@ -10,11 +10,10 @@ describe('<Countdown />', () => {
     let wrapper
 
     beforeEach(() => {
-        wrapper = shallow(<Countdown  />)
+        wrapper = shallow(<Countdown finalDate="2018-07-16T00:00:00Z"  />)
     })
 
     it('should render the component if finalDate is true', () => {
-        wrapper.setProps({ finalDate: '2018-07-16T00:00:00Z' })
         expect(wrapper.find('div')).toHaveLength(1)
     })
 })
