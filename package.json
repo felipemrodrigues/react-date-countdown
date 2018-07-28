@@ -52,5 +52,12 @@
   },
   "modulePathIgnorePatterns": [
     "<rootDir>/node_modules.*/react"
-  ]
+  ],
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
 }
