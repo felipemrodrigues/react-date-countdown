@@ -5,3 +5,4 @@ index.js
 npm-debug.log
 coverage
 package-lock.json
+.editorconfig
