@@ -1,3 +1,6 @@
+NOT MAINTAINED
+
+
 React Date Countdown
 ==============
 
